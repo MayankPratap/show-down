@@ -1,4 +1,5 @@
-import requests,bs4
+import requests
+import bs4
 
 address = "172.31.102.29"
 port = "3128"
@@ -14,60 +15,60 @@ proxyDict = {
               "ftp"   : ftp_proxy
             }
             
-url = 'http://tvshows4mobile.com/search/list_all_tv_series'
-
-res = requests.get(url, stream=True, proxies=proxyDict)
-soup = bs4.BeautifulSoup(res.text)
-elems = soup.select('.data a')
-
-show_name = raw_input()
-
-for i in range(len(elems)):
-    if show_name in str(elems[i]).lower():
-        temp = i
-
-link = elems[temp].get('href')
             
-url = 'http://tvshows4mobile.com/Two-And-A-Half-Men-1/index.html'
-url = url[:-10]
+class showDown:
+    
+    def __init__(self):
+        self.url = 'http://tvshows4mobile.com/search/list_all_tv_series'
+        
+    def download(self,show_name):
+        res = requests.get(self.url, stream=True, proxies=proxyDict)
+        soup = bs4.BeautifulSoup(res.text)
+        elems = soup.select('.data a')
 
-res=requests.get(url, stream=True, proxies=proxyDict)
-res.raise_for_status()
-
-soup=bs4.BeautifulSoup(res.text)
-
-
-elems=soup.select('.data a')
-lastseason=elems[0].get('href')
-
-url = lastseason  
-
-
-res=requests.get(url, stream=True, proxies=proxyDict)
-res.raise_for_status()
-
-soup=bs4.BeautifulSoup(res.text)
-
-elems=soup.select('.data a')
-lastepisode=elems[0].get('href')
-
-
-url = lastepisode
-
-res=requests.get(url, stream=True, proxies=proxyDict)
-
-res.raise_for_status()
-
-soup=bs4.BeautifulSoup(res.text)
-elems=soup.select('.data a')
-url=elems[-2].get('href')
+        for i in range(len(elems)):
+            if show_name in str(elems[i]).lower():
+                temp = i
+        
+        self.url = elems[temp].get('href')
+        self.url = self.url[:-10]
+        
+        self.updateSeason()
+        self.updateEpisode()
+        self.getVideoLink()
+        self.downloader()
+        
+        
+    def updateSeason(self):
+        res=requests.get(self.url, stream=True, proxies=proxyDict)
+        res.raise_for_status()        
+        soup=bs4.BeautifulSoup(res.text)
+        elems=soup.select('.data a')
+        lastseason=elems[0].get('href')        
+        self.url = lastseason  
 
 
-r = requests.get(url, stream=True, proxies=proxyDict)
-#r=requests.get(url)
-with open("test.mp4", "wb") as f:
-    print('Downloading at Flash Speed..')
-    for chunk in r.iter_content(8*1024):
-        if chunk:
-            f.write(chunk)
-            f.flush()
+    def updateEpisode(self):
+        res=requests.get(self.url, stream=True, proxies=proxyDict)
+        res.raise_for_status()
+        soup=bs4.BeautifulSoup(res.text)
+        elems=soup.select('.data a')
+        lastepisode=elems[0].get('href')
+        self.url = lastepisode
+
+    def getVideoLink(self):
+        res=requests.get(self.url, stream=True, proxies=proxyDict)
+        res.raise_for_status()
+        soup=bs4.BeautifulSoup(res.text)
+        elems=soup.select('.data a')
+        self.url=elems[-2].get('href')
+
+
+    def downloader(self):
+        r = requests.get(self.url, stream=True, proxies=proxyDict)
+        with open("test.mp4", "wb") as f:
+            print('Downloading at Flash Speed..')
+            for chunk in r.iter_content(8*1024):
+                if chunk:
+                    f.write(chunk)
+                    f.flush()
