@@ -1,32 +1,28 @@
 import os
 from showDown import showDown
-print '\n##############################################################################'
 print ' SOFTWARE_NAME ver 1.0 '
-print ' Modified by Narendra Pal and Shashank Singh'
-print '##############################################################################'
+print ' Created by Narendra Pal and Shashank Singh'
+print '#####################################################################'
 def main() :
-    data = []
+    data = [None,None]*10
     user = showDown()
     cmd = raw_input('\n>> ')
     cmd = " ".join(cmd.split())
     data = cmd.split('-')
-    
     options = {}
     command = data[0].strip().lower()
     for row in data :
         if row.find(' ') != -1:
             option = row.split(' ')
             if len(option) >= 2:
-                options['%s'%option[0]] = " ".join(option[1:]).strip()
+                options['%s'%option[0]] = option[1]
             elif len(option) >= 1:
                 options['%s'%option[0]] = ''
-        else :
-            options['%s'%row] = ''
     if command == 'proxy' :
         if 'p' in options :
             user.setproxy(options['p'])
         else :
-            print 'Error : Set proxy using -p switch . Format : http://username:password@proxy:port'
+            print 'Error : Set proxy using -p switch'
     elif command == 'exit':
         os.system('setterm -cursor on')
         exit()
