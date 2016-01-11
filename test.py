@@ -2,7 +2,7 @@ import os
 from showDown import showDown
 print '\n##############################################################################'
 print ' SOFTWARE_NAME ver 1.0 '
-print ' Modified by Narendra Pal and Shashank Singh'
+
 print '##############################################################################'
 def main() :
     data = []
