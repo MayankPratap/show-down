@@ -1,5 +1,7 @@
 # A list of contributors 
 
-* Narendra pal (https://github.com/npcoder2k14)
+* [Mayank Pratap](https://github.com/MayankPratap)
+* [Narendra Pal](https://github.com/npcoder2k14)
+* [Prabhat Doongarwal](https://github.com/pdoongarwal)
 * Shashank Singh
-
+* [Sunil Sangwan](https://github.com/shark-S)
