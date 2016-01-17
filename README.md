@@ -9,7 +9,7 @@ A simple script to download latest episode of any TV show by simply typing a sho
     
 -->Download ZIP file for the repository/Clone the repository.
 
---> Run test.py 
+--> Run test.py by typing python2 test.py or python3 test.py on terminal.
 
 --> If using for first time and your system is in proxy network then
 
