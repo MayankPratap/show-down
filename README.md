@@ -1,5 +1,5 @@
 # show-down
-A simple script to automatically download TV shows when they are released.
+A simple script to download latest episode of any TV show.
 
 --> Run test.py 
 
@@ -11,8 +11,8 @@ A simple script to automatically download TV shows when they are released.
     
 --> For downloading 
 
-    --> use  " download -m <tv series name> -latest "
-
+    --> use  " download -m <tv series name> -latest " (without quotes)
+    
     --> Default format is .mp4
 
     --> for format setting use option -f
