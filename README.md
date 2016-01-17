@@ -19,8 +19,17 @@ A simple script to download latest episode of any TV show by simply typing a sho
 
     --> for format setting use option -f
 
---> Those who want to schedule their downloader to run weekly and check for latest episode of TV Series you entered :-
-     
-     
-
+### Those who want to schedule their downloader to run weekly and check for latest episode of TV Series you entered :-
+    
+    #### For Ubuntu and other Linux versions
+        
+        --> Open Terminal type "crontab -e" (without quotes)
+        
+        --> Add this at end of file :- " @weekly DISPLAY=:0 xterm -e python2 /path/to/my/test.py " (without quotes)
+               
+                  For example :- @weekly DISPLAY=:0 xterm -e python2 /opt/lampp/htdocs/show-down/test.py
+               
+        --> save changes in crontab -e and exit.
+        
+        
 
