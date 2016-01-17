@@ -1,0 +1,2 @@
+print("lol",)
+print("xyz")
