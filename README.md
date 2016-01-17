@@ -3,7 +3,7 @@ A simple script to download latest episode of any TV show by simply typing a sho
 
 --> Dependencies
 
-    --> python2 ( We are updating it to work in python3)
+    --> python2 or python3
     --> beautifulsoup4 module of python :- Install it using "pip install beautifulsoup4" (without quotes) on terminal.
     
     
