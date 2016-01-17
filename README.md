@@ -38,7 +38,11 @@ A simple script to download latest episode of any TV show by simply typing a sho
         --> Add this at end of file :- " @weekly DISPLAY=:0 xterm -e python2 /path/to/my/test.py " (without quotes)
                
                   For example :- @weekly DISPLAY=:0 xterm -e python2 /opt/lampp/htdocs/show-down/test.py
-               
+                  
+                  Or 
+                  
+                 " @weekly DISPLAY=:0 xterm -e python3 /path/to/my/test.py " (without quotes)
+                 
         --> save changes in crontab -e and exit.
         
         
