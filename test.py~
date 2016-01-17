@@ -10,6 +10,7 @@ def main() :
     cmd = input('>> ')
     cmd = " ".join(cmd.split())
     data = cmd.split('-')
+    print(data)
     
     options = {}
     command = data[0].strip().lower()
