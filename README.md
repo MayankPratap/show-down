@@ -1,5 +1,7 @@
 # show-down
-A simple script to download latest episode of any TV show.
+A simple script to download latest episode of any TV show by simply typing a show name.
+
+-->Download ZIP this repository.
 
 --> Run test.py 
 
@@ -16,3 +18,5 @@ A simple script to download latest episode of any TV show.
     --> Default format is .mp4
 
     --> for format setting use option -f
+
+--> If a bug is found,raise a issue or send a pull request(More preferred).
