@@ -17,13 +17,17 @@ A simple script to download latest episode of any TV show by simply typing a sho
 
     --> U can choose to change proxy anytime
     
---> For downloading 
+--> For downloading :-
 
     --> use  " download -m <tv series name> -latest " (without quotes)
     
     --> Default format is .mp4
 
     --> for format setting use option -f
+
+--> For coming out of downloader script :-
+
+    --> Type "exit" (without quotes)
 
 ### Those who want to schedule their downloader to run weekly and check for latest episode of TV Series you entered :-
     
