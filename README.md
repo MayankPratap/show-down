@@ -1,6 +1,12 @@
 # show-down
 A simple script to download latest episode of any TV show by simply typing a show name.
 
+--> Dependencies
+
+    --> python2 ( We are updating it to work in python3)
+    --> beautifulsoup4 module of python :- Install it using "pip install beautifulsoup4" (without quotes) on terminal.
+    
+    
 -->Download ZIP file for the repository/Clone the repository.
 
 --> Run test.py 
