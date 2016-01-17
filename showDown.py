@@ -52,7 +52,7 @@ class showDown:
             else :
                 self.getVideoLinkmp4()
             print ("The file in latest available is : %s"%(self.filename))
-            print (">> Do you wanna download it (y or n):",)
+            print (">> Do you wanna download it (y or n):",end=" ")
             response = input(" ")
             if response=='y' or response=='Y':     
                self.downloader(url = self.url , filename = self.filename )
@@ -121,7 +121,7 @@ class showDown:
                 lasttime = time.time()
                 session_data = 0
             downloaded += len(data)
-            sys.stdout.write('\rDownloaded : %.2f %% .. Please wait ...          Downloading @ %.2f kBps  '%(float(downloaded*100)/float(content_length),cur_speed))
+            sys.stdout.write('\rDownloaded : %.2f %%                              Downloading @ %.2f kBps  '%(float(downloaded*100)/float(content_length),cur_speed))
             sys.stdout.flush()
             data=r.read(10240)
         f.close()

@@ -7,7 +7,7 @@ print ('########################################################################
 def main() :
     data = []
     user = showDown()
-    cmd = input('\n>> ')
+    cmd = input('>> ')
     cmd = " ".join(cmd.split())
     data = cmd.split('-')
     
@@ -44,6 +44,6 @@ def main() :
          print ('Invalid command : %s' %(data[0]))
     main()
              
-
+#if "__name__"=="__main__":
 main()
 

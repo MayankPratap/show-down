@@ -1,35 +1,40 @@
 # show-down
 A simple script to download latest episode of any TV show by simply typing a show name.
 
--->Download ZIP file for the repository/Clone the repository.
+Supported in both Python2 and Python3
 
---> Run test.py 
-
---> If using for first time and your system is in proxy network then
-
-    --> use "proxy -p http://user:pass@proxy:port" (without quotes)
-
-    --> U can choose to change proxy anytime
+- Dependencies
+    - beautifulsoup4 module of python :- Install it using command ```pip install beautifulsoup4``` in terminal.
     
---> For downloading 
-
-    --> use  " download -m <tv series name> -latest " (without quotes)
     
-    --> Default format is .mp4
+- Download ZIP file for the repository/Clone the repository.
 
-    --> for format setting use option -f
+- Run test.py 
 
-### Those who want to schedule their downloader to run weekly and check for latest episode of TV Series you entered :-
+- If using for first time and your system is in proxy network then
+
+    - Use ```proxy -p http://user:pass@proxy:port```
+
+    - You can choose to change proxy anytime
     
-    #### For Ubuntu and other Linux versions
+- For Downloading 
+
+    - Use  ```download -m <tv series name> -latest```
+    
+    - Default format is .mp4
+
+    - For format setting use option -f
+
+- **Those who want to schedule their downloader to run weekly and check for latest episode of TV Series you entered :-**
+    - *For Ubuntu and other Linux versions*
         
-        --> Open Terminal type "crontab -e" (without quotes)
+        - Open Terminal, type ```crontab -e```
         
-        --> Add this at end of file :- " @weekly DISPLAY=:0 xterm -e python2 /path/to/my/test.py " (without quotes)
+        - Add this at end of file :- ```@weekly DISPLAY=:0 xterm -e python2 /path/to/my/test.py```
                
-                  For example :- @weekly DISPLAY=:0 xterm -e python2 /opt/lampp/htdocs/show-down/test.py
+            For example :- ```@weekly DISPLAY=:0 xterm -e python2 /opt/lampp/htdocs/show-down/test.py```
                
-        --> save changes in crontab -e and exit.
+        - Save changes in crontab -e and exit.
         
         
 
