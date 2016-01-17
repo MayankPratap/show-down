@@ -1,5 +1,6 @@
 import os
 from showDown import showDown
+
 print ('\n##############################################################################')
 print (' Show Down v1.0 ')
 
@@ -7,7 +8,10 @@ print ('########################################################################
 def main() :
     data = []
     user = showDown()
-    cmd = input('>> ')
+    try:
+    	cmd = input('>> ')
+    except:
+    	cmd = raw_input('>> ')
     cmd = " ".join(cmd.split())
     data = cmd.split('-')
     
@@ -44,6 +48,5 @@ def main() :
          print ('Invalid command : %s' %(data[0]))
     main()
              
-#if "__name__"=="__main__":
 main()
 
