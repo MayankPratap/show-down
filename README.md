@@ -1,49 +1,40 @@
 # show-down
 A simple script to download latest episode of any TV show by simply typing a show name.
 
---> Dependencies
+Supported in both Python2 and Python3
 
-    --> python2 or python3
-    --> beautifulsoup4 module of python :- Install it using "pip install beautifulsoup4" (without quotes) on terminal.
+- Dependencies
+    - beautifulsoup4 module of python :- Install it using command ```pip install beautifulsoup4``` in terminal.
     
     
--->Download ZIP file for the repository/Clone the repository.
+- Download ZIP file for the repository/Clone the repository.
 
---> Run test.py by typing "python2 test.py" or "python3 test.py" (without quotes)  on terminal.
+- Run test.py 
 
---> If using for first time and your system is in proxy network then
+- If using for first time and your system is in proxy network then
 
-    --> use "proxy -p http://user:pass@proxy:port" (without quotes)
+    - Use ```proxy -p http://user:pass@proxy:port```
 
-    --> U can choose to change proxy anytime
+    - You can choose to change proxy anytime
     
---> For downloading :-
+- For Downloading 
 
-    --> use  " download -m <tv series name> -latest " (without quotes)
+    - Use  ```download -m <tv series name> -latest```
     
-    --> Default format is .mp4
+    - Default format is .mp4
 
-    --> for format setting use option -f
+    - For format setting use option -f
 
---> For coming out of downloader script :-
-
-    --> Type "exit" (without quotes)
-
-### Those who want to schedule their downloader to run weekly and check for latest episode of TV Series you entered :-
-    
-    #### For Ubuntu and other Linux versions
+- **Those who want to schedule their downloader to run weekly and check for latest episode of TV Series you entered :-**
+    - *For Ubuntu and other Linux versions*
         
-        --> Open Terminal type "crontab -e" (without quotes)
+        - Open Terminal, type ```crontab -e```
         
-        --> Add this at end of file :- " @weekly DISPLAY=:0 xterm -e python2 /path/to/my/test.py " (without quotes)
+        - Add this at end of file :- ```@weekly DISPLAY=:0 xterm -e python2 /path/to/my/test.py```
                
-                  For example :- @weekly DISPLAY=:0 xterm -e python2 /opt/lampp/htdocs/show-down/test.py
-                  
-                  Or 
-                  
-                 " @weekly DISPLAY=:0 xterm -e python3 /path/to/my/test.py " (without quotes)
-                 
-        --> save changes in crontab -e and exit.
+            For example :- ```@weekly DISPLAY=:0 xterm -e python2 /opt/lampp/htdocs/show-down/test.py```
+               
+        - Save changes in crontab -e and exit.
         
         
 
