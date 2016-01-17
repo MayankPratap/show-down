@@ -1,9 +1,9 @@
 import os
 from showDown import showDown
-print '\n##############################################################################'
-print ' SOFTWARE_NAME ver 1.0 '
+print ('\n##############################################################################')
+print (' SOFTWARE_NAME ver 1.0 ')
 
-print '##############################################################################'
+print ('##############################################################################')
 def main() :
     data = []
     user = showDown()
@@ -26,7 +26,7 @@ def main() :
         if 'p' in options :
             user.setproxy(options['p'])
         else :
-            print 'Error : Set proxy using -p switch . Format : http://username:password@proxy:port'
+            print ('Error : Set proxy using -p switch . Format : http://username:password@proxy:port')
     elif command == 'exit':
         os.system('setterm -cursor on')
         exit()
@@ -36,12 +36,12 @@ def main() :
                 if options['f'].lower() == 'mp4' or options['f'].lower() == '3gp' :
                     user.downloadLatest(options['m'] , options['f'] )
                 else :
-                    print 'Error : Format not supported. Only mp4 and 3gp supported.'
+                    print ('Error : Format not supported. Only mp4 and 3gp supported.')
             elif 'latest' in options :
                 user.downloadLatest(options['m'] , "mp4" )
                          
     else :
-         print 'Invalid command : %s' %(data[0])
+         print ('Invalid command : %s' %(data[0]))
     main()
              
 

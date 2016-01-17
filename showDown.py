@@ -20,12 +20,12 @@ class showDown:
     def setproxy(self,proxy) :
         self.proxy_file = open("proxy.config","w")
         self.proxy_file.write(proxy)
-        print "Proxy updated ..."
+        print ("Proxy updated ...")
         self.proxy_file.close()
         
 
     def downloadLatest(self,show_name,filetype):
-        print 'Sending request ... '
+        print ('Sending request ... ')
         if self.http_proxy != '':
             proxy = urllib2.ProxyHandler(self.proxyDict)
             auth = urllib2.HTTPBasicAuthHandler()
@@ -47,9 +47,9 @@ class showDown:
                 self.getVideoLink3gp()
             else :
                 self.getVideoLinkmp4()
-            print "The file in latest available is : %s"%(self.filename)
-            print ">> Do you wanna download it (y or n):",
-            response = raw_input(" ")
+            print ("The file in latest available is : %s"%(self.filename))
+            print (">> Do you wanna download it (y or n):",)
+            response = input(" ")
             if response=='y' or response=='Y':     
                self.downloader(url = self.url , filename = self.filename )
             else :
@@ -57,7 +57,7 @@ class showDown:
                return    
             temp = -1
         else :
-            print 'Sorry , no match found . '
+            print ('Sorry , no match found . ')
     def currentSeason(self):
         res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()       
         soup=bs4.BeautifulSoup(res)
@@ -95,13 +95,13 @@ class showDown:
     def downloader(self,url,filename):
      try:
         r = urllib2.urlopen(urllib2.Request(self.url, headers = self.header))
-        print '\rSend Get ... '
+        print ('\rSend Get ... ')
         time.sleep(1)
-        print '\rDownload started .... '
+        print ('\rDownload started .... ')
         time.sleep(1)
         content_length = r.headers['content-length']
-        print 'Filename : %s '%(filename)
-        print 'Filesize : %.2f MB'%(float(content_length)/(1024*1024))
+        print ('Filename : %s '%(filename))
+        print ('Filesize : %.2f MB'%(float(content_length)/(1024*1024)))
         downloaded = 0
         f = open(filename, "wb")
         data=r.read(10240)
@@ -125,7 +125,7 @@ class showDown:
         sys.stdout.write("\n"+filename + " downloaded successfully !!!\n%.2f MB downloaded in %.2f s ."%(float(content_length)/(1024*1024),time.time() - start_time))
      except KeyboardInterrupt :
         os.system('setterm -cursor on')
-        print 'you pressed Ctrl + C'
+        print ('you pressed Ctrl + C')
            
     def showSeason(self , url):
         res = urllib2.urlopen(urllib2.Request(url, headers = self.header)).read()       
@@ -135,7 +135,7 @@ class showDown:
             season_name = str(season.get('href'))
         season_name = season_name[season_name.find(">")+1:]
         season_name = season_name[:season_name.find("<")]
-        print season_name+"\n"  
+        print (season_name+"\n")  
 
 
     def showEpisode(self , url , page):
@@ -146,4 +146,4 @@ class showDown:
             episode_name = str(episode.get('href'))
         episode_name = episode_name[episode_name.find(">")+1:]
         episode_name = episode_name[:episode_name.find("<")]
-        print episode_name+"\n"
+        print (episode_name+"\n")

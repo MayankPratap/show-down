@@ -1,7 +1,7 @@
 # show-down
 A simple script to download latest episode of any TV show by simply typing a show name.
 
--->Download ZIP this repository.
+-->Download ZIP file for the repository/Clone the repository.
 
 --> Run test.py 
 
