@@ -1,13 +1,13 @@
 import os
 from showDown import showDown
 print ('\n##############################################################################')
-print (' SOFTWARE_NAME ver 1.0 ')
+print (' Show Down v1.0 ')
 
 print ('##############################################################################')
 def main() :
     data = []
     user = showDown()
-    cmd = raw_input('\n>> ')
+    cmd = input('\n>> ')
     cmd = " ".join(cmd.split())
     data = cmd.split('-')
     
