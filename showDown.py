@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import urllib2
 import bs4
 import os , time ,sys        
