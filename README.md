@@ -19,4 +19,8 @@ A simple script to download latest episode of any TV show by simply typing a sho
 
     --> for format setting use option -f
 
---> If a bug is found,raise a issue or send a pull request(More preferred).
+--> Those who want to schedule their downloader to run weekly and check for latest episode of TV Series you entered :-
+     
+     
+
+
