@@ -1,8 +1,12 @@
 #!/usr/bin/python
-import urllib2
 import bs4
 import os , time ,sys        
-temp = -1           
+temp = -1        
+
+try:
+    import urllib.request as urllib2
+except ImportError:
+    import urllib2   
 
 class showDown:
 
