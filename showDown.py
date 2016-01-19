@@ -9,8 +9,7 @@ except ImportError:
     import urllib2   
 
 class showDown:
-
-    pwd = ''    
+   
     def __init__(self):
         self.url = 'http://tvshows4mobile.com/search/list_all_tv_series'
         self.header = { 'USER_AGENT' : 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:43.0) Gecko/20100101 Firefox/43.0'}
@@ -52,7 +51,7 @@ class showDown:
             else :
                 self.getVideoLinkmp4()
             print ("The file in latest available is : %s"%(self.filename))
-            response = input(">> Do you wanna download it (y or n): ")
+            response = input("Do you wanna download it (y or n): ")
             if response=='y' or response=='Y':     
                self.downloader(url = self.url , filename = self.filename )
             else :
@@ -84,16 +83,6 @@ class showDown:
         self.filename = self.filename[self.filename.find(">")+1:]
         self.filename = self.filename[:self.filename.find("<")]
         self.url=elems[-2].get('href')
-    
-    def getVideoLink3gp(self):
-        res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()
-        soup=bs4.BeautifulSoup(res)
-        elems=soup.select('.data a')
-        self.filename = str(elems[-3])
-        self.filename = self.filename[self.filename.find(">")+1:]
-        self.filename = self.filename[:self.filename.find("<")]
-        self.url=elems[-3].get('href')
-
 
     def downloader(self,url,filename):
      try:
