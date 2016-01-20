@@ -17,6 +17,6 @@ if args['unsetproxy']:
     user.unsetproxy()
 
 if args['downloadlatest']:
-    user.downloadLatest(args['downloadlatest'])
+    user.downloadLatest(args['downloadlatest'], 'mp4')
     
 
