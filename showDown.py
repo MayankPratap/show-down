@@ -40,7 +40,7 @@ class showDown:
             opener = urllib2.build_opener(proxy, auth, urllib2.HTTPHandler)
             urllib2.install_opener(opener)
         res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()
-        soup = bs4.BeautifulSoup(res)
+        soup = bs4.BeautifulSoup(res, "html.parser")
         elems = soup.select('.data a')
         for i in range(len(elems)):
             if show_name.lower() in str(elems[i]).lower():
@@ -60,8 +60,9 @@ class showDown:
             if response=='y' or response=='Y':     
                self.downloader(url = self.url , filename = self.filename )
             else :
-               # os.system("setterm -cursor on")
-               return    
+                if sys.platform!='win32':
+                    os.system("setterm -cursor on")
+                return
             temp = -1
         else :
             print ('Sorry , no match found . ')
@@ -105,7 +106,8 @@ class showDown:
         cur_speed = 0
         session_data=0
         start_time = lasttime = time.time()
-        # os.system('setterm -cursor off')
+        if sys.platform!='win32':
+            os.system('setterm -cursor off')
         while data :
             f.write(data)
             session_data += len(data)
@@ -118,10 +120,12 @@ class showDown:
             sys.stdout.flush()
             data=r.read(10240)
         f.close()
-        # os.system('setterm -cursor on')
+        if sys.platform!='win32':
+            os.system('setterm -cursor on')
         sys.stdout.write("\n"+filename + " downloaded successfully !!!\n%.2f MB downloaded in %.2f s ."%(float(content_length)/(1024*1024),time.time() - start_time))
      except KeyboardInterrupt :
-        # os.system('setterm -cursor on')
+        if sys.platform!='win32':
+            os.system('setterm -cursor on')
         print ('you pressed Ctrl + C')
         if os.path.isfile("./"+filename):
             r.close()
