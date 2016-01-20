@@ -32,7 +32,7 @@ class showDown:
         print ("Proxy removed")
         self.proxy_file.close()
         
-    def downloadLatest(self,show_name,filetype):
+    def downloadLatest(self,show_name):
         print ('Sending request ... ')
         if self.http_proxy != '':
             proxy = urllib2.ProxyHandler(self.proxyDict)
@@ -51,12 +51,9 @@ class showDown:
             self.url = self.url[:-10]
             self.currentSeason()
             self.latestEpisode()
-            if filetype == "3gp" :
-                self.getVideoLink3gp()
-            else :
-                self.getVideoLinkmp4()
+            self.getVideoLinkmp4()
             print ("The file in latest available is : %s"%(self.filename))
-            response = raw_input("Do you wanna download it (y or n): ")
+            response = input("Do you wanna download it (y or n): ")
             if response=='y' or response=='Y':     
                self.downloader(url = self.url , filename = self.filename )
             else :
