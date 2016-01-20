@@ -214,7 +214,3 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
-
-#Proxy file
-proxy.config
-
