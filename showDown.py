@@ -23,11 +23,16 @@ class showDown:
     def setproxy(self,proxy) :
         self.proxy_file = open("proxy.config","w")
         self.proxy_file.write(proxy)
-        print ("Proxy updated ...")
+        print ("Proxy updated")
         self.proxy_file.close()
         
-
-    def downloadLatest(self,show_name,filetype):
+    def unsetproxy(self) :
+        self.proxy_file = open("proxy.config","w")
+        self.proxy_file.write("")
+        print ("Proxy removed")
+        self.proxy_file.close()
+        
+    def downloadLatest(self,show_name):
         print ('Sending request ... ')
         if self.http_proxy != '':
             proxy = urllib2.ProxyHandler(self.proxyDict)
@@ -35,7 +40,7 @@ class showDown:
             opener = urllib2.build_opener(proxy, auth, urllib2.HTTPHandler)
             urllib2.install_opener(opener)
         res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()
-        soup = bs4.BeautifulSoup(res)
+        soup = bs4.BeautifulSoup(res, "html.parser")
         elems = soup.select('.data a')
         for i in range(len(elems)):
             if show_name.lower() in str(elems[i]).lower():
@@ -46,23 +51,21 @@ class showDown:
             self.url = self.url[:-10]
             self.currentSeason()
             self.latestEpisode()
-            if filetype == "3gp" :
-                self.getVideoLink3gp()
-            else :
-                self.getVideoLinkmp4()
+            self.getVideoLinkmp4()
             print ("The file in latest available is : %s"%(self.filename))
             response = input("Do you wanna download it (y or n): ")
             if response=='y' or response=='Y':     
                self.downloader(url = self.url , filename = self.filename )
             else :
-               os.system("setterm -cursor on")
-               return    
+                if sys.platform!='win32':
+                    os.system("setterm -cursor on")
+                return
             temp = -1
         else :
             print ('Sorry , no match found . ')
     def currentSeason(self):
         res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()       
-        soup=bs4.BeautifulSoup(res)
+        soup=bs4.BeautifulSoup(res, "html.parser")
         elems=soup.select('.data a')
         lastseason=elems[0].get('href')        
         self.url = lastseason  
@@ -70,14 +73,14 @@ class showDown:
 
     def latestEpisode(self):
         res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()
-        soup=bs4.BeautifulSoup(res)
+        soup=bs4.BeautifulSoup(res, "html.parser")
         elems=soup.select('.data a')
         lastepisode=elems[0].get('href')
         self.url = lastepisode
 
     def getVideoLinkmp4(self):
         res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()
-        soup=bs4.BeautifulSoup(res)
+        soup=bs4.BeautifulSoup(res, "html.parser")
         elems=soup.select('.data a')
         self.filename = str(elems[-2])
         self.filename = self.filename[self.filename.find(">")+1:]
@@ -100,7 +103,8 @@ class showDown:
         cur_speed = 0
         session_data=0
         start_time = lasttime = time.time()
-        os.system('setterm -cursor off')
+        if sys.platform!='win32':
+            os.system('setterm -cursor off')
         while data :
             f.write(data)
             session_data += len(data)
@@ -113,15 +117,21 @@ class showDown:
             sys.stdout.flush()
             data=r.read(10240)
         f.close()
-        os.system('setterm -cursor on')
+        if sys.platform!='win32':
+            os.system('setterm -cursor on')
         sys.stdout.write("\n"+filename + " downloaded successfully !!!\n%.2f MB downloaded in %.2f s ."%(float(content_length)/(1024*1024),time.time() - start_time))
      except KeyboardInterrupt :
-        os.system('setterm -cursor on')
+        if sys.platform!='win32':
+            os.system('setterm -cursor on')
         print ('you pressed Ctrl + C')
-           
+        if os.path.isfile("./"+filename):
+            r.close()
+            f.close()
+            os.remove("./"+filename)
+            
     def showSeason(self , url):
         res = urllib2.urlopen(urllib2.Request(url, headers = self.header)).read()       
-        soup=bs4.BeautifulSoup(res)
+        soup=bs4.BeautifulSoup(res, "html.parser")
         elems=soup.select('.data a')
         for season in elems : 
             season_name = str(season.get('href'))
@@ -132,7 +142,7 @@ class showDown:
 
     def showEpisode(self , url , page):
         res = urllib2.urlopen(urllib2.Request(url+"page"+page+".html", headers = self.header)).read()
-        soup=bs4.BeautifulSoup(res)
+        soup=bs4.BeautifulSoup(res, "html.parser")
         elems=soup.select('.data a')
         for episode in elems : 
             episode_name = str(episode.get('href'))
