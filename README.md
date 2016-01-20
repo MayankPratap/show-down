@@ -9,21 +9,23 @@ Supported in both Python2 and Python3
     
 - Download ZIP file for the repository/Clone the repository.
 
-- Run test.py 
-
 - If using for first time and your system is in proxy network then
 
-    - Use ```proxy -p http://user:pass@proxy:port```
+    - Use ```python test.py -p http://username:password@proxy_address:port```
 
     - You can choose to change proxy anytime
     
+    - You can unset proxy by command ```python test.py -u```
+    
 - For Downloading 
 
-    - Use  ```download -m <tv series name> -latest```
+    - Use  ```python test.py -dl show_name```
     
-    - Default format is .mp4
+    - Download format is .mp4
 
-    - For format setting use option -f
+- For Help
+    
+    - Type ```python test.py -h```
 
 - **Those who want to schedule their downloader to run weekly and check for latest episode of TV Series you entered :-**
     - *For Ubuntu and other Linux versions*

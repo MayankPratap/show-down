@@ -23,10 +23,15 @@ class showDown:
     def setproxy(self,proxy) :
         self.proxy_file = open("proxy.config","w")
         self.proxy_file.write(proxy)
-        print ("Proxy updated ...")
+        print ("Proxy updated")
         self.proxy_file.close()
         
-
+    def unsetproxy(self) :
+        self.proxy_file = open("proxy.config","w")
+        self.proxy_file.write("")
+        print ("Proxy removed")
+        self.proxy_file.close()
+        
     def downloadLatest(self,show_name,filetype):
         print ('Sending request ... ')
         if self.http_proxy != '':
