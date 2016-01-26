@@ -1,6 +1,8 @@
 #!/usr/bin/python
 import bs4
-import os , time ,sys        
+import os 
+import time 
+import sys        
 temp = -1        
 
 try:
@@ -63,6 +65,7 @@ class showDown:
             temp = -1
         else :
             print ('Sorry , no match found . ')
+    
     def currentSeason(self):
         res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()       
         soup=bs4.BeautifulSoup(res, "html.parser")
@@ -128,24 +131,3 @@ class showDown:
             r.close()
             f.close()
             os.remove("./"+filename)
-            
-    def showSeason(self , url):
-        res = urllib2.urlopen(urllib2.Request(url, headers = self.header)).read()       
-        soup=bs4.BeautifulSoup(res, "html.parser")
-        elems=soup.select('.data a')
-        for season in elems : 
-            season_name = str(season.get('href'))
-        season_name = season_name[season_name.find(">")+1:]
-        season_name = season_name[:season_name.find("<")]
-        print (season_name+"\n")  
-
-
-    def showEpisode(self , url , page):
-        res = urllib2.urlopen(urllib2.Request(url+"page"+page+".html", headers = self.header)).read()
-        soup=bs4.BeautifulSoup(res, "html.parser")
-        elems=soup.select('.data a')
-        for episode in elems : 
-            episode_name = str(episode.get('href'))
-        episode_name = episode_name[episode_name.find(">")+1:]
-        episode_name = episode_name[:episode_name.find("<")]
-        print (episode_name+"\n")
