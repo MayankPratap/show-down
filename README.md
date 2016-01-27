@@ -1,4 +1,6 @@
 # show-down
+
+[![Join the chat at https://gitter.im/MayankPratap/show-down](https://badges.gitter.im/MayankPratap/show-down.svg)](https://gitter.im/MayankPratap/show-down?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 A simple script to download latest episode of any TV show by simply typing a show name.
 
 Supported in both Python2 and Python3
