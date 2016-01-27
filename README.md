@@ -41,6 +41,3 @@ Supported in both Python2 and Python3
                
         - Save changes in crontab -e and exit.
         
-        
-
->>>>>>> d803c9dca1fce1035d59ca4209f0a3f0589421a6
