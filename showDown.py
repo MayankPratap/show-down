@@ -1,16 +1,10 @@
 #!/usr/bin/python
+import urllib.request as urllib2
 import bs4
 import os 
 import time 
 import sys        
-temp = -1        
-py_version=0;
-try:
-    py_version=3
-    import urllib.request as urllib2
-except ImportError:
-    import urllib2
-    py_version=2   
+temp = -1
 
 class showDown:
    
@@ -57,22 +51,11 @@ class showDown:
             self.latestEpisode()
             self.getVideoLinkmp4()
             print ("The file in latest available is : %s"%(self.filename))
-<<<<<<< HEAD
-            if py_version==3:
-                response =input("Do you wanna download it (y or n): ")
-            else:
-                response=raw_input("Do you wanna download it (y or n):")
-            if  response=='y' or response=='Y':
-                #print (response)
-                self.downloader(url = self.url , filename = self.filename )
-=======
-            try:
-                response = raw_input("Do you wanna download it (y or n): ")
-            except NameError:
-                response = input("Do you wanna download it (y or n): ")
+
+            response = input("Do you wanna download it (y or n): ")
             if response=='y' or response=='Y':     
                self.downloader(url = self.url , filename = self.filename )
->>>>>>> 4b6fba0d0911c73442ecda34006ea9c86e142a1d
+
             else :
                 if sys.platform!='win32':
                     os.system("setterm -cursor on")
