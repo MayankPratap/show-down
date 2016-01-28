@@ -57,6 +57,7 @@ class showDown:
             self.latestEpisode()
             self.getVideoLinkmp4()
             print ("The file in latest available is : %s"%(self.filename))
+<<<<<<< HEAD
             if py_version==3:
                 response =input("Do you wanna download it (y or n): ")
             else:
@@ -64,6 +65,14 @@ class showDown:
             if  response=='y' or response=='Y':
                 #print (response)
                 self.downloader(url = self.url , filename = self.filename )
+=======
+            try:
+                response = raw_input("Do you wanna download it (y or n): ")
+            except NameError:
+                response = input("Do you wanna download it (y or n): ")
+            if response=='y' or response=='Y':     
+               self.downloader(url = self.url , filename = self.filename )
+>>>>>>> 4b6fba0d0911c73442ecda34006ea9c86e142a1d
             else :
                 if sys.platform!='win32':
                     os.system("setterm -cursor on")
@@ -132,7 +141,7 @@ class showDown:
      except KeyboardInterrupt :
         if sys.platform!='win32':
             os.system('setterm -cursor on')
-        print ('you pressed Ctrl + C')
+        print ('  Ctrl + C pressed')
         if os.path.isfile("./"+filename):
             r.close()
             f.close()
