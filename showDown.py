@@ -1,16 +1,10 @@
 #!/usr/bin/python
+import urllib.request as urllib2
 import bs4
 import os 
 import time 
 import sys        
-temp = -1        
-py_version=0;
-try:
-    py_version=3
-    import urllib.request as urllib2
-except ImportError:
-    import urllib2
-    py_version=2   
+temp = -1
 
 class showDown:
    
@@ -57,13 +51,11 @@ class showDown:
             self.latestEpisode()
             self.getVideoLinkmp4()
             print ("The file in latest available is : %s"%(self.filename))
-            if py_version==3:
-                response =input("Do you wanna download it (y or n): ")
-            else:
-                response=raw_input("Do you wanna download it (y or n):")
-            if  response=='y' or response=='Y':
-                #print (response)
-                self.downloader(url = self.url , filename = self.filename )
+
+            response = input("Do you wanna download it (y or n): ")
+            if response=='y' or response=='Y':     
+               self.downloader(url = self.url , filename = self.filename )
+
             else :
                 if sys.platform!='win32':
                     os.system("setterm -cursor on")
@@ -132,7 +124,7 @@ class showDown:
      except KeyboardInterrupt :
         if sys.platform!='win32':
             os.system('setterm -cursor on')
-        print ('you pressed Ctrl + C')
+        print ('  Ctrl + C pressed')
         if os.path.isfile("./"+filename):
             r.close()
             f.close()

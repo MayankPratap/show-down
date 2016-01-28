@@ -4,7 +4,7 @@
 
 A simple script to download latest episode of any TV show by simply typing a show name.
 
-Supported in both Python2 and Python3
+Supported in Python3 only.
 
 - Dependencies
     - beautifulsoup4 module of python :- Install it using command ```pip install beautifulsoup4``` in terminal.
