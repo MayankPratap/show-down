@@ -1,13 +1,12 @@
 #!/usr/bin/python
 import bs4
-import os , time ,sys, webbrowser
+import os
+import time 
+import sys
+import webbrowser
+import urllib.request as urllib2
 
-try:
-    import urllib.request as urllib2
-except ImportError:
-    import urllib2   
-
-class showDown:
+class showDown_hd:
    
     def __init__(self):
         self.url = 'http://dayt.se/tvseries/index.php?&page='
@@ -24,18 +23,6 @@ class showDown:
             }
         self.proxy_file.close()
     
-    def setproxy(self,proxy) :
-        self.proxy_file = open("proxy.config","w")
-        self.proxy_file.write(proxy)
-        print ("Proxy updated")
-        self.proxy_file.close()
-        
-    def unsetproxy(self) :
-        self.proxy_file = open("proxy.config","w")
-        self.proxy_file.write("")
-        print ("Proxy removed")
-        self.proxy_file.close()
-        
     def downloadLatest(self,show_name):
         print ('Sending request ... ')
         if self.http_proxy != '':
