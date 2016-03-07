@@ -25,6 +25,10 @@ Supported in Python3 only.
     - Use  ```python episode.py -dl show_name```
     
     - Download format is .mp4
+    
+- To get list of all available shows in mp4 quality.
+    
+    - Use ```python episode.py -l```
 
 - For Help
     
