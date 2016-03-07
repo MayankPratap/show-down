@@ -10,7 +10,7 @@ Supported in Python3 only.
     - beautifulsoup4 module of python :- Install it using command ```pip install beautifulsoup4``` in terminal.
     
     
-- Download ZIP file for the repository/Clone the repository.
+- Download ZIP file of repository or Clone the repository.
 
 - If using for first time and your system is in proxy network then
 
