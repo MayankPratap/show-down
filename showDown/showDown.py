@@ -89,4 +89,16 @@ class showDown:
         self.filename = self.filename[self.filename.find(">")+1:]
         self.filename = self.filename[:self.filename.find("<")]
         self.url=elems[-2].get('href')
+   
+    def listAvailableShows(self):
+        res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()
+        soup=bs4.BeautifulSoup(res, "html.parser")
+        elems=soup.select('.data a')
+        print ('List of TV Shows: \n')
+        for i in range(len(elems)):
+            show_name = str(elems[i])
+            show_name = show_name[show_name.find(">")+1:]
+            show_name = show_name[:show_name.find("<")]
+            print ("\r " + show_name)
+     
             
