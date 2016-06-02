@@ -44,4 +44,5 @@ Supported in Python3 only.
             For example :- ```@weekly DISPLAY=:0 xterm -e python2 /opt/lampp/htdocs/show-down/episode.py```
                
         - Save changes in crontab -e and exit.
-        
+
+- Added Travis CI        
