@@ -6,3 +6,4 @@
 * Shashank Singh
 * [Sunil Sangwan](https://github.com/shark-S)
 * [Keshav Garg](https://github.com/mkeshavgarg)
+* [Kartikay Singh](https://github.com/alphaguy4)
