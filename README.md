@@ -45,4 +45,4 @@ Supported in Python3 only.
                
         - Save changes in crontab -e and exit.
 
-- Added Travis CI        
+- Testing Travis CI
