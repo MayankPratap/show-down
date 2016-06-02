@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 from download import Downloader
 import urllib.request as urllib2
 import bs4
