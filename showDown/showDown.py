@@ -20,18 +20,18 @@ class showDown:
         self.proxy_file.close()
     
     def setproxy(self,proxy) :
-    """ Writes the given proxy settings to the proxy configuration file.
+    # Writes the given proxy settings to the proxy configuration file.
 
-        Arguments:
-        proxy - a string containing the proxy settings
-    """
+    #    Arguments:
+    #    proxy - a string containing the proxy settings
+    
         self.proxy_file = open("proxy.config","w")
         self.proxy_file.write(proxy)
         print ("Proxy updated")
         self.proxy_file.close()
         
     def unsetproxy(self) :
-    """ Removes proxy settings from the proxy configuration file. """
+    # Removes proxy settings from the proxy configuration file. 
         self.proxy_file = open("proxy.config","w")
         self.proxy_file.write("")
         print ("Proxy removed")
