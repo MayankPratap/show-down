@@ -9,6 +9,14 @@ class Downloader(object):
         
     def download(self,url,filename):
      try:
+        self.url = url
+        self.header = { 'USER_AGENT' : 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:43.0) Gecko/20100101 Firefox/43.0'}
+        self.proxy_file = open("proxy.config","r")
+        self.http_proxy = self.proxy_file.read()
+        self.proxyDict = { 
+              "http"  : self.http_proxy
+        }
+        self.proxy_file.close()
         r = urllib2.urlopen(urllib2.Request(self.url, headers = self.header))
         print ('\rSend Get ... ')
         time.sleep(1)
