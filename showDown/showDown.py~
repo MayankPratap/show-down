@@ -54,6 +54,7 @@ class showDown:
         if temp != -1 :
             self.url = elems[temp].get('href')
             self.url = self.url[:-10]
+<<<<<<< HEAD
             #print(self.url)
             self.currentSeason()
             #print(self.url)
@@ -61,6 +62,11 @@ class showDown:
             #print(self.url)
             self.getVideoLink()
           
+=======
+            self.currentSeason()
+            self.latestEpisode()
+            self.getVideoLink()
+>>>>>>> b5c2e2405088207b37f79964fe74ccc5fef674d4
             print ("The file in latest available is : %s"%(self.filename))
 
             response = input("Do you wanna download it (y or n): ")
@@ -94,6 +100,7 @@ class showDown:
     def getVideoLink(self):
         res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()
         soup=bs4.BeautifulSoup(res, "html.parser")
+<<<<<<< HEAD
         # Because .data span has only two occurences it is easy
         # to capture than .data a
         elem=soup.select('.data span')[0]
@@ -111,6 +118,13 @@ class showDown:
         #self.filename = self.filename[:self.filename.find("<")]
         self.url=url
         
+=======
+        elems=soup.select('.data a')
+        self.filename = str(elems[-2])
+        self.filename = self.filename[self.filename.find(">")+1:]
+        self.filename = self.filename[:self.filename.find("<")]
+        self.url=elems[-2].get('href')
+>>>>>>> b5c2e2405088207b37f79964fe74ccc5fef674d4
    
     def listAvailableShows(self):
         res = urllib2.urlopen(urllib2.Request(self.url, headers = self.header)).read()
